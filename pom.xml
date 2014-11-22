@@ -24,9 +24,10 @@
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.9</reflections.version><!-- UPTODATE 2014-09-25 -->
         <icu.version>54.1.1</icu.version>               <!-- UPTODATE 2014-10-30 -->
+        <disruptor.version>3.2.1</disruptor.version>    <!-- UPTODATE 2014-06-18, 3.3.0 release in July -->
         
         <!-- testing support -->
-        <testng.version>6.8.8</testng.version>         <!-- UPTODATE 2014-11-20 -->
+        <testng.version>6.8.8</testng.version>          <!-- UPTODATE 2014-11-20 -->
         <junit.version>4.11</junit.version>
         
         <!--  benchmarking -->
