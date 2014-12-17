@@ -112,7 +112,7 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- default Java compaibility version is 1.6 for Android compatibility -->
+                <!-- default Java compatibility version is 1.6 for Android compatibility -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -240,6 +240,15 @@
                     </configuration>
                 </plugin>
                 
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${javadoc.plugin.version}</version>
+                    <configuration>
+                        <charset>UTF-8</charset>
+                    </configuration>
+                </plugin>
+                            
             </plugins>
         </pluginManagement>
     </build>
