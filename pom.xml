@@ -19,7 +19,7 @@
         
         <!-- core tools used -->
         <guava.version>18.0</guava.version>             <!-- UPTODATE 2015-02-07 http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.8.0</xtend.version>            <!-- UPTODATE 2015-02-07 -->
+        <xtend.version>2.7.3</xtend.version>            <!-- UPTODATE 2015-02-07 -->
         <jodatime.version>2.7</jodatime.version>        <!-- UPTODATE 2015-02-07 -->
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.9</reflections.version><!-- UPTODATE 2015-02-07 -->
@@ -155,9 +155,8 @@
                                 <goal>xtend-test-install-debug-info</goal>
                             </goals>
                             <configuration>
-                                <!-- pathnames changed not to include source folder as workaround for bugzilla 462723 -->
-                                <outputDirectory>${project.basedir}/src/main/gen-xtend</outputDirectory>
-                                <testOutputDirectory>${project.basedir}/src/test/gen-xtend</testOutputDirectory>
+                                <outputDirectory>${project.basedir}/src/main/xtend-gen</outputDirectory>
+                                <testOutputDirectory>${project.basedir}/src/test/xtend-gen</testOutputDirectory>
                             </configuration>
                         </execution>
                     </executions>
