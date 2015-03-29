@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
         <!-- logging -->
-        <slf4j.version>1.7.10</slf4j.version>           <!-- UPTODATE 2015-02-07 http://www.slf4j.org/ -->
+        <slf4j.version>1.7.12</slf4j.version>           <!-- UPTODATE 2015-02-07 http://www.slf4j.org/ -->
         <logback.version>1.1.2</logback.version>        <!-- UPTODATE 2015-02-07 http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- UPTODATE 2015-02-07 Log4j Rev 1 (deprecated) -->
         <log4j2.version>2.2</log4j2.version>            <!-- UPTODATE 2015-02-22 -->
