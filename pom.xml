@@ -12,26 +12,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
         <!-- logging -->
-        <slf4j.version>1.7.12</slf4j.version>           <!-- UPTODATE 2015-03-24 http://www.slf4j.org/ -->
-        <logback.version>1.1.2</logback.version>        <!-- UPTODATE 2015-02-07 http://logback.qos.ch/ -->
-        <log4j.version>1.2.17</log4j.version>           <!-- UPTODATE 2015-02-07 Log4j Rev 1 (deprecated) -->
-        <log4j2.version>2.2</log4j2.version>            <!-- UPTODATE 2015-02-22 -->
+        <slf4j.version>1.7.12</slf4j.version>           <!-- http://www.slf4j.org/ -->
+        <logback.version>1.1.3</logback.version>        <!-- http://logback.qos.ch/ -->
+        <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
+        <log4j2.version>2.3</log4j2.version>            <!-- -->
         
         <!-- core tools used -->
-        <guava.version>18.0</guava.version>             <!-- UPTODATE 2015-02-07 http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.8.1</xtend.version>            <!-- UPTODATE 2015-03-24 -->
-        <jodatime.version>2.7</jodatime.version>        <!-- UPTODATE 2015-02-07 -->
+        <guava.version>18.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
+        <xtend.version>2.8.3</xtend.version>            <!-- -->
+        <jodatime.version>2.8.1</jodatime.version>      <!-- -->
         <jsap.version>2.1</jsap.version>
-        <reflections.version>0.9.9</reflections.version><!-- UPTODATE 2015-02-07 -->
-        <icu.version>54.1.1</icu.version>               <!-- UPTODATE 2015-02-07 -->
-        <disruptor.version>3.3.2</disruptor.version>    <!-- UPTODATE 2015-02-07 -->
+        <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
+        <icu.version>55.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
+        <disruptor.version>3.3.2</disruptor.version>    <!-- UPTODATE 2015-04-10 -->
         
         <!-- testing support -->
         <testng.version>6.8.21</testng.version>         <!-- UPTODATE 2015-02-07 -->
         <junit.version>4.11</junit.version>             <!-- 4.12 is out 2014-12-04 -->
         
         <!--  benchmarking -->
-        <jmh.version>1.7</jmh.version>                <!-- UPTODATE 2015-03-20 http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.10</jmh.version>                 <!-- UPTODATE 2015-03-20 http://openjdk.java.net/projects/code-tools/jmh/ -->
         
         <!-- maven plugins -->
         <surefire.plugin.version>2.18.1</surefire.plugin.version>
@@ -47,7 +47,7 @@
         <shade.plugin.version>2.3</shade.plugin.version>
         <jar.plugin.version>2.5</jar.plugin.version>
 
-        <tycho.version>0.22.0</tycho.version>
+        <tycho.version>0.23.0</tycho.version>
     </properties>
 
     <licenses>
@@ -129,14 +129,30 @@
                     </configuration>
                 </plugin>
                 
-                <!-- package sources as well -->
+                <!-- package sources as well. But pay attention to prevent nasty duplicate execution of generate-sources,
+                     which in conjunction with xtext and xtend can take some time -->
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${source.plugin.version}</version>
                     <executions>
+                        <!-- here we override the super-pom attach-sources executionid which
+                            calls sources:jar goal. That goals forks the lifecycle, causing
+                            the generate-sources phase to be called twice for the install goal.
+                            This causes any other plugin bound to the generate-sources phase to
+                            be called twice which usually has nasty side effects, let alone
+                            creating duplicate processing and longer build times.
+                            
+                            See http://blog.peterlynch.ca/2010/05/maven-how-to-prevent-generate-sources.html -->
                         <execution>
+                            <id>attach-sources</id>
+                            <phase>DISABLE_FORKED_LIFECYCLE_MSOURCES-13</phase>
+                        </execution>
+                        <execution>
+                            <id>attach-sources-no-fork</id>
+                            <inherited>true</inherited>
+                            <phase>generate-sources</phase>
                             <goals>
-                                <goal>jar</goal>
+                                <goal>jar-no-fork</goal>
                             </goals>
                         </execution>
                     </executions>
