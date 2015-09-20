@@ -19,19 +19,19 @@
         
         <!-- core tools used -->
         <guava.version>18.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.8.3</xtend.version>            <!-- -->
-        <jodatime.version>2.8.1</jodatime.version>      <!-- -->
+        <xtend.version>2.8.4</xtend.version>            <!-- UPTODATE 2015-09-20 -->
+        <jodatime.version>2.8.2</jodatime.version>      <!-- UPTODATE 2015-09-20 -->
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
         <icu.version>55.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
         <disruptor.version>3.3.2</disruptor.version>    <!-- UPTODATE 2015-04-10 -->
         
         <!-- testing support -->
-        <testng.version>6.8.21</testng.version>         <!-- UPTODATE 2015-02-07 -->
+        <testng.version>6.9.6</testng.version>          <!-- UPTODATE 2015-09-20 -->
         <junit.version>4.11</junit.version>             <!-- 4.12 is out 2014-12-04 -->
         
         <!--  benchmarking -->
-        <jmh.version>1.10.1</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.10.5</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
         
         <!-- maven plugins -->
         <surefire.plugin.version>2.18.1</surefire.plugin.version>
@@ -47,7 +47,7 @@
         <shade.plugin.version>2.3</shade.plugin.version>
         <jar.plugin.version>2.5</jar.plugin.version>
 
-        <tycho.version>0.23.0</tycho.version>
+        <tycho.version>0.23.1</tycho.version>
     </properties>
 
     <licenses>
