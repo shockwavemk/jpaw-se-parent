@@ -31,7 +31,7 @@
         <junit.version>4.11</junit.version>             <!-- 4.12 is out 2014-12-04 -->
         
         <!--  benchmarking -->
-        <jmh.version>1.10.5</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.11.1</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
         
         <!-- maven plugins -->
         <surefire.plugin.version>2.18.1</surefire.plugin.version>
