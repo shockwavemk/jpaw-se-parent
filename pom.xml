@@ -27,8 +27,8 @@
         <disruptor.version>3.3.2</disruptor.version>    <!-- UPTODATE 2015-04-10 -->
         
         <!-- testing support -->
-        <testng.version>6.9.6</testng.version>          <!-- UPTODATE 2015-09-20 -->
-        <junit.version>4.11</junit.version>             <!-- 4.12 is out 2014-12-04 -->
+        <testng.version>6.9.8</testng.version>          <!-- UPTODATE 2015-10-17 -->
+        <junit.version>4.12</junit.version>             <!-- UPTODATE 2015-10-17 -->
         
         <!--  benchmarking -->
         <jmh.version>1.11.1</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
