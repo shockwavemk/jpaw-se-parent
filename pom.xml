@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -19,7 +19,7 @@
         
         <!-- core tools used -->
         <guava.version>18.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.8.4</xtend.version>            <!-- UPTODATE 2015-09-20 -->
+        <xtend.version>2.9.0</xtend.version>            <!-- UPTODATE 2015-09-20 -->
         <jodatime.version>2.9.1</jodatime.version>      <!-- UPTODATE 2015-09-20 -->
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
