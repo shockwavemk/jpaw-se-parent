@@ -10,13 +10,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
+
         <!-- logging -->
         <slf4j.version>1.7.16</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.1.3</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
         <log4j2.version>2.5</log4j2.version>            <!-- -->
-        
+
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
         <xtend.version>2.9.1</xtend.version>            <!-- UPTODATE 2015-12-31 -->
@@ -26,14 +26,14 @@
         <icu.version>56.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
         <disruptor.version>3.3.2</disruptor.version>    <!-- UPTODATE 2015-04-10 -->
         <tycho.version>0.24.0</tycho.version>
-        
+
         <!-- testing support -->
         <testng.version>6.9.10</testng.version>         <!-- UPTODATE 2016-02-23 -->
         <junit.version>4.12</junit.version>             <!-- UPTODATE 2015-10-17 -->
-        
+
         <!--  benchmarking -->
         <jmh.version>1.11.3</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
-        
+
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
         <compiler.plugin.version>3.5.1</compiler.plugin.version>
@@ -72,7 +72,7 @@
             <url>http://www.jpaw.de</url>
         </developer>
     </developers>
-    
+
     <distributionManagement>
         <snapshotRepository>
             <id>repo-snapshots</id>
@@ -85,7 +85,7 @@
             <url>${repo.url}/libs-release-local</url>
         </repository>
     </distributionManagement>
- 
+
     <build>
         <pluginManagement>
             <plugins>
@@ -100,7 +100,7 @@
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
                 </plugin>
-                
+
                 <!-- package sources as well. But pay attention to prevent nasty duplicate execution of generate-sources,
                      which in conjunction with xtext and xtend can take some time -->
                 <plugin>
@@ -113,7 +113,7 @@
                             This causes any other plugin bound to the generate-sources phase to
                             be called twice which usually has nasty side effects, let alone
                             creating duplicate processing and longer build times.
-                            
+
                             See http://blog.peterlynch.ca/2010/05/maven-how-to-prevent-generate-sources.html -->
                         <execution>
                             <id>attach-sources</id>
@@ -129,7 +129,7 @@
                         </execution>
                     </executions>
                 </plugin>
-                
+
                 <!-- default xtend settings -->
                 <plugin>
                     <groupId>org.eclipse.xtend</groupId>
@@ -151,7 +151,7 @@
                         </execution>
                     </executions>
                 </plugin>
-                
+
                 <!-- ensure consistency for tagged releases -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -179,14 +179,14 @@
                         <failFast>true</failFast>
                     </configuration>
                 </plugin>
-                
+
                 <!-- build helper maven plugin: define just the version! -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${build-helper.plugin.version}</version>
                 </plugin>
-                
+
 
                 <!-- Lifecycle mappings to support Eclipse m2e -->
                 <plugin>
@@ -207,7 +207,7 @@
                                     </pluginExecutionFilter>
                                     <action>
                                         <ignore/>
-                                        <!-- 
+                                        <!--
                                         <execute>
                                             <runOnIncremental>true</runOnIncremental>
                                             <runOnConfiguration>true</runOnConfiguration>
@@ -232,7 +232,7 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
-                
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
@@ -241,9 +241,9 @@
                         <charset>UTF-8</charset>
                     </configuration>
                 </plugin>
-                            
+
             </plugins>
         </pluginManagement>
     </build>
-    
+
 </project>
