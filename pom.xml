@@ -13,7 +13,7 @@
 
         <!-- logging -->
         <slf4j.version>1.7.18</slf4j.version>           <!-- http://www.slf4j.org/ -->
-        <logback.version>1.1.3</logback.version>        <!-- http://logback.qos.ch/ -->
+        <logback.version>1.1.6</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
         <log4j2.version>2.5</log4j2.version>            <!-- -->
 
@@ -24,7 +24,7 @@
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
         <icu.version>56.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
-        <disruptor.version>3.3.2</disruptor.version>    <!-- UPTODATE 2015-04-10 -->
+        <disruptor.version>3.3.4</disruptor.version>    <!-- UPTODATE 2016-03-10 -->
         <tycho.version>0.24.0</tycho.version>
 
         <!-- testing support -->
@@ -46,15 +46,15 @@
         <rar.plugin.version>2.4</rar.plugin.version>
         <war.plugin.version>2.6</war.plugin.version>
         <javadoc.plugin.version>2.10.3</javadoc.plugin.version>
-        <shade.plugin.version>2.4.2</shade.plugin.version>
-        <source.plugin.version>2.4</source.plugin.version>
-        <surefire.plugin.version>2.19</surefire.plugin.version>
-        <failsafe.plugin.version>2.19</failsafe.plugin.version>
+        <shade.plugin.version>2.4.3</shade.plugin.version>
+        <source.plugin.version>2.4</source.plugin.version>      <!-- 3.0.0: properties renamed -->
+        <surefire.plugin.version>2.19.1</surefire.plugin.version>
+        <failsafe.plugin.version>2.19.1</failsafe.plugin.version>
         <assembly.plugin.version>2.6</assembly.plugin.version>
 
         <!-- org.codehaus.mojo maven plugins -->
         <exec.plugin.version>1.4.0</exec.plugin.version>
-        <build-helper.plugin.version>1.9.1</build-helper.plugin.version>
+        <build-helper.plugin.version>1.10</build-helper.plugin.version>
 
         <!-- org.apache.felix plugins -->
         <bundle.plugin.version>3.0.1</bundle.plugin.version>
