@@ -12,15 +12,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- logging -->
-        <slf4j.version>1.7.19</slf4j.version>           <!-- http://www.slf4j.org/ -->
-        <logback.version>1.1.6</logback.version>        <!-- http://logback.qos.ch/ -->
+        <slf4j.version>1.7.21</slf4j.version>           <!-- http://www.slf4j.org/ -->
+        <logback.version>1.1.7</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
         <log4j2.version>2.5</log4j2.version>            <!-- -->
 
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
         <xtend.version>2.9.2</xtend.version>            <!-- UPTODATE 2015-12-31 -->
-        <jodatime.version>2.9.2</jodatime.version>      <!-- UPTODATE 2015-09-20 -->
+        <jodatime.version>2.9.3</jodatime.version>      <!-- UPTODATE 2016-04-02 -->
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
         <icu.version>56.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
