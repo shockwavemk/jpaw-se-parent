@@ -19,13 +19,13 @@
 
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.9.2</xtend.version>            <!-- UPTODATE 2015-12-31 -->
-        <jodatime.version>2.9.3</jodatime.version>      <!-- UPTODATE 2016-04-02 -->
+        <xtend.version>2.10.0</xtend.version>           <!-- UPTODATE 2016-07-21 -->
+        <jodatime.version>2.9.4</jodatime.version>      <!-- UPTODATE 2016-07-21 -->
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
-        <icu.version>56.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
+        <icu.version>57.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
         <disruptor.version>3.3.4</disruptor.version>    <!-- UPTODATE 2016-03-10 -->
-        <tycho.version>0.24.0</tycho.version>
+        <tycho.version>0.25.0</tycho.version>
 
         <!-- testing support -->
         <testng.version>6.9.10</testng.version>         <!-- UPTODATE 2016-02-23 -->
@@ -33,7 +33,7 @@
         <jmockit.version>1.22</jmockit.version>         <!-- UPTODATE 2016-02-28 -->
 
         <!--  benchmarking -->
-        <jmh.version>1.11.3</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.12</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
