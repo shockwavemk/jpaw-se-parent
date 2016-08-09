@@ -33,7 +33,7 @@
         <jmockit.version>1.22</jmockit.version>         <!-- UPTODATE 2016-02-28 -->
 
         <!--  benchmarking -->
-        <jmh.version>1.12</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.13</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
