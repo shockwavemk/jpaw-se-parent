@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -12,20 +12,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- logging -->
-        <slf4j.version>1.7.18</slf4j.version>           <!-- http://www.slf4j.org/ -->
-        <logback.version>1.1.6</logback.version>        <!-- http://logback.qos.ch/ -->
+        <slf4j.version>1.7.21</slf4j.version>           <!-- http://www.slf4j.org/ -->
+        <logback.version>1.1.7</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
-        <log4j2.version>2.5</log4j2.version>            <!-- -->
+        <log4j2.version>2.6.2</log4j2.version>          <!-- -->
 
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.9.2</xtend.version>            <!-- UPTODATE 2015-12-31 -->
-        <jodatime.version>2.9.2</jodatime.version>      <!-- UPTODATE 2015-09-20 -->
+        <xtend.version>2.10.0</xtend.version>           <!-- UPTODATE 2016-07-21 -->
+        <jodatime.version>2.9.4</jodatime.version>      <!-- UPTODATE 2016-07-21 -->
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
-        <icu.version>56.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
+        <icu.version>57.1</icu.version>                 <!-- UPTODATE 2015-04-10 -->
         <disruptor.version>3.3.4</disruptor.version>    <!-- UPTODATE 2016-03-10 -->
-        <tycho.version>0.24.0</tycho.version>
+        <tycho.version>0.25.0</tycho.version>
 
         <!-- testing support -->
         <testng.version>6.9.10</testng.version>         <!-- UPTODATE 2016-02-23 -->
@@ -33,7 +33,7 @@
         <jmockit.version>1.22</jmockit.version>         <!-- UPTODATE 2016-02-28 -->
 
         <!--  benchmarking -->
-        <jmh.version>1.11.3</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.13</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
@@ -248,5 +248,71 @@
             </plugins>
         </pluginManagement>
     </build>
-
+    
+    <!-- define a repositories section to disable access to codehaus which is no longer there, and some external SNAPSHOT repos accessed in some xtend runs. -->
+    <!-- see https://noclassdeffound.wordpress.com/2015/11/02/disabling-repositories-in-maven-sort-of-or-how-to-deal-with-the-demise-of-codehaus/ -->
+    <repositories>
+        <repository>
+            <id>codehaus-snapshots</id>
+            <url>http://nexus.codehaus.org/snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>sonatype-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>central snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>codehaus-snapshots</id>
+            <url>http://nexus.codehaus.org/snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>sonatype-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
