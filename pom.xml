@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.1.2-SNAPSHOT</version>
+    <version>1.1.2</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -15,7 +15,7 @@
         <slf4j.version>1.7.21</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.1.7</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
-        <log4j2.version>2.5</log4j2.version>            <!-- -->
+        <log4j2.version>2.6.2</log4j2.version>          <!-- -->
 
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
