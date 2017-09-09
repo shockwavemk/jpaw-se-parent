@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -12,28 +12,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- logging -->
-        <slf4j.version>1.7.21</slf4j.version>           <!-- http://www.slf4j.org/ -->
-        <logback.version>1.1.7</logback.version>        <!-- http://logback.qos.ch/ -->
+        <slf4j.version>1.7.25</slf4j.version>           <!-- http://www.slf4j.org/ -->
+        <logback.version>1.2.3</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
-        <log4j2.version>2.5</log4j2.version>            <!-- -->
+        <log4j2.version>2.7</log4j2.version>
 
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
         <xtend.version>2.10.0</xtend.version>           <!-- UPTODATE 2016-07-21 -->
-        <jodatime.version>2.9.6</jodatime.version>      <!-- UPTODATE 2016-11-11 -->
+        <jodatime.version>2.9.9</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
-        <icu.version>58.2</icu.version>                 <!-- UPTODATE 2016-12-10 -->
+        <icu.version>59.1</icu.version>
         <disruptor.version>3.3.6</disruptor.version>    <!-- UPTODATE 2016-12-04 -->
         <tycho.version>0.26.0</tycho.version>
 
         <!-- testing support -->
-        <testng.version>6.9.10</testng.version>         <!-- UPTODATE 2016-02-23 -->
-        <junit.version>4.12</junit.version>             <!-- UPTODATE 2015-10-17 -->
-        <jmockit.version>1.22</jmockit.version>         <!-- UPTODATE 2016-02-28 -->
+        <testng.version>6.9.10</testng.version>
+        <junit.version>4.12</junit.version>
+        <jmockit.version>1.22</jmockit.version>
 
         <!--  benchmarking -->
-        <jmh.version>1.17.2</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.17.5</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
