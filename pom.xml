@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -15,17 +15,17 @@
         <slf4j.version>1.7.25</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.2.3</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
-        <log4j2.version>2.7</log4j2.version>
+        <log4j2.version>2.10</log4j2.version>
 
         <!-- core tools used -->
         <guava.version>19.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/ -->
-        <xtend.version>2.10.0</xtend.version>           <!-- UPTODATE 2016-07-21 -->
+        <xtend.version>2.13.0</xtend.version>
         <jodatime.version>2.9.9</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
-        <icu.version>59.1</icu.version>
+        <icu.version>60.2</icu.version>
         <disruptor.version>3.3.6</disruptor.version>    <!-- UPTODATE 2016-12-04 -->
-        <tycho.version>0.26.0</tycho.version>
+        <tycho.version>1.0.0</tycho.version>
 
         <!-- testing support -->
         <testng.version>6.9.10</testng.version>
@@ -33,32 +33,32 @@
         <jmockit.version>1.22</jmockit.version>
 
         <!--  benchmarking -->
-        <jmh.version>1.17.5</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.19</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
-        <compiler.plugin.version>3.5.1</compiler.plugin.version>
+        <compiler.plugin.version>3.7.0</compiler.plugin.version>
         <clean.plugin.version>2.6.1</clean.plugin.version>      <!-- 3.0.0 -->
         <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
         <ear.plugin.version>2.10.1</ear.plugin.version>
-        <ejb.plugin.version>2.5.1</ejb.plugin.version>
-        <jar.plugin.version>2.6</jar.plugin.version>
+        <ejb.plugin.version>3.0.0</ejb.plugin.version>
+        <jar.plugin.version>3.0.2</jar.plugin.version>
         <rar.plugin.version>2.4</rar.plugin.version>
         <war.plugin.version>2.6</war.plugin.version>
-        <javadoc.plugin.version>2.10.3</javadoc.plugin.version>
-        <shade.plugin.version>2.4.3</shade.plugin.version>
-        <source.plugin.version>2.4</source.plugin.version>      <!-- 3.0.0: properties renamed -->
-        <surefire.plugin.version>2.19.1</surefire.plugin.version>
-        <failsafe.plugin.version>2.19.1</failsafe.plugin.version>
-        <assembly.plugin.version>2.6</assembly.plugin.version>
+        <javadoc.plugin.version>3.0.0</javadoc.plugin.version>
+        <shade.plugin.version>3.1.0</shade.plugin.version>
+        <source.plugin.version>3.0.1</source.plugin.version>
+        <surefire.plugin.version>2.20.1</surefire.plugin.version>
+        <failsafe.plugin.version>2.20.1</failsafe.plugin.version>
+        <assembly.plugin.version>3.1.0</assembly.plugin.version>
 
         <!-- org.codehaus.mojo maven plugins -->
         <exec.plugin.version>1.4.0</exec.plugin.version>
-        <build-helper.plugin.version>1.10</build-helper.plugin.version>
+        <build-helper.plugin.version>3.0.0</build-helper.plugin.version>
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
 
         <!-- org.apache.felix plugins -->
-        <bundle.plugin.version>3.0.1</bundle.plugin.version>
+        <bundle.plugin.version>3.4.0</bundle.plugin.version>
     </properties>
 
     <licenses>
