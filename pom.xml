@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -25,7 +25,7 @@
         <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
         <icu.version>61.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
-        <tycho.version>1.1.0</tycho.version>
+        <tycho.version>1.2.0</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
         <asm.version>6.2</asm.version>                  <!-- required for compiler plugin with version 10 -->
@@ -167,6 +167,13 @@
                             </configuration>
                         </execution>
                     </executions>
+					<dependencies>
+						<dependency>
+						    <groupId>org.eclipse.platform</groupId>
+						    <artifactId>org.eclipse.equinox.common</artifactId>
+						    <version>3.10.0</version>
+						</dependency>
+					</dependencies>
                 </plugin>
 
                 <!-- ensure consistency for tagged releases -->
