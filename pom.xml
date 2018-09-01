@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -18,17 +18,20 @@
         <log4j2.version>2.11.0</log4j2.version>
 
         <!-- core tools used -->
-        <guava.version>20.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/, last Java 6 compatible one -->
-        <xtend.version>2.14.0</xtend.version>
+        <guava.version>20.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
+        <xtend.version>2.14.0</xtend.version>           <!-- version of the libs -->
+        <xtend-plugin.version>2.14.0</xtend-plugin.version>  <!-- version of the plugins (usually the same) -->
         <jodatime.version>2.10</jodatime.version>
         <jsap.version>2.1</jsap.version>
-        <reflections.version>0.9.10</reflections.version><!-- UPTODATE 2015-02-07 -->
-        <icu.version>61.1</icu.version>
+        <reflections.version>0.9.11</reflections.version>
+        <icu.version>62.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
         <tycho.version>1.2.0</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>6.2</asm.version>                  <!-- required for compiler plugin with version 10 -->
+        <asm.version>6.2.1</asm.version>                  <!-- required for compiler plugin with version 10 -->
+        <javassist.version>3.23.1-GA</javassist.version>
+        <cglib.version>3.2.7</cglib.version>
         <jaxb.version>2.3.0</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
 
@@ -43,7 +46,7 @@
 
         <!-- org.apache.maven.plugins -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
-        <compiler.plugin.version>3.7.0</compiler.plugin.version>
+        <compiler.plugin.version>3.8.0</compiler.plugin.version>
         <clean.plugin.version>3.1.0</clean.plugin.version>      <!-- 3.0.0 -->
         <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
         <ear.plugin.version>3.0.1</ear.plugin.version>
@@ -95,6 +98,31 @@
         </repository>
     </distributionManagement>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -108,6 +136,19 @@
                         <source>1.8</source>
                         <target>1.8</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
+<!-- errorProne checker: needs Java 9 or 10
+                        <compilerArgs>
+                            <arg>-XDcompilePolicy=simple</arg>
+                            <arg>-Xplugin:ErrorProne</arg>
+                        </compilerArgs>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>com.google.errorprone</groupId>
+                                <artifactId>error_prone_core</artifactId>
+                                <version>2.3.1</version>
+                            </path>
+                        </annotationProcessorPaths>
+-->
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -151,7 +192,7 @@
                 <plugin>
                     <groupId>org.eclipse.xtend</groupId>
                     <artifactId>xtend-maven-plugin</artifactId>
-                    <version>${xtend.version}</version>
+                    <version>${xtend-plugin.version}</version>
                     <executions>
                         <execution>
                             <phase>generate-sources</phase>
