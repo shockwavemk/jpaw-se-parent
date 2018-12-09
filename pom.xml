@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.3.0</version>
+    <version>1.4.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -19,19 +19,19 @@
 
         <!-- core tools used -->
         <guava.version>20.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtend.version>2.15.0</xtend.version>           <!-- version of the libs -->
-        <xtend-plugin.version>2.15.0</xtend-plugin.version>  <!-- version of the plugins (usually the same) -->
-        <jodatime.version>2.10</jodatime.version>
+        <xtend.version>2.16.0</xtend.version>           <!-- version of the libs -->
+        <xtend-plugin.version>2.16.0</xtend-plugin.version>  <!-- version of the plugins (usually the same) -->
+        <jodatime.version>2.10.1</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.11</reflections.version>
-        <icu.version>62.1</icu.version>
+        <icu.version>63.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
         <tycho.version>1.2.0</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>6.2.1</asm.version>                  <!-- required for compiler plugin with version 10 -->
-        <javassist.version>3.23.1-GA</javassist.version>
-        <cglib.version>3.2.8</cglib.version>
+        <asm.version>7.0</asm.version>                  <!-- required for compiler plugin with version 11 -->
+        <javassist.version>3.24.0-GA</javassist.version>
+        <cglib.version>3.2.9</cglib.version>
         <jaxb.version>2.3.0</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
 
