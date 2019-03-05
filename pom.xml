@@ -3,24 +3,24 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.4.1</version>
+    <version>1.5.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <min-maven.version>3.0.5</min-maven.version>
 
         <!-- logging -->
-        <slf4j.version>1.7.25</slf4j.version>           <!-- http://www.slf4j.org/ -->
+        <slf4j.version>1.7.26</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.2.3</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
         <log4j2.version>2.11.0</log4j2.version>
 
         <!-- core tools used -->
         <guava.version>20.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtend.version>2.16.0</xtend.version>           <!-- version of the libs -->
-        <xtend-plugin.version>2.16.0</xtend-plugin.version>  <!-- version of the plugins (usually the same) -->
+        <xtext.version>2.17.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
         <jodatime.version>2.10.1</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.11</reflections.version>
@@ -29,9 +29,9 @@
         <tycho.version>1.3.0</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>7.0</asm.version>                  <!-- required for compiler plugin with version 11 -->
-        <javassist.version>3.24.0-GA</javassist.version>
-        <cglib.version>3.2.9</cglib.version>
+        <asm.version>7.0</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
+        <javassist.version>3.24.1-GA</javassist.version>
+        <cglib.version>3.2.10</cglib.version>
         <jaxb.version>2.3.0</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
 
@@ -51,13 +51,13 @@
         <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
         <ear.plugin.version>3.0.1</ear.plugin.version>
         <ejb.plugin.version>3.0.1</ejb.plugin.version>
-        <jar.plugin.version>3.1.0</jar.plugin.version>
+        <jar.plugin.version>3.1.1</jar.plugin.version>
         <war.plugin.version>3.2.2</war.plugin.version>
-        <javadoc.plugin.version>3.0.1</javadoc.plugin.version>
+        <javadoc.plugin.version>3.1.0</javadoc.plugin.version>
         <shade.plugin.version>3.2.0</shade.plugin.version>
         <source.plugin.version>3.0.1</source.plugin.version>
-        <surefire.plugin.version>2.22.0</surefire.plugin.version>
-        <failsafe.plugin.version>2.22.0</failsafe.plugin.version>
+        <surefire.plugin.version>2.22.1</surefire.plugin.version>
+        <failsafe.plugin.version>2.22.1</failsafe.plugin.version>
         <assembly.plugin.version>3.1.0</assembly.plugin.version>
 
         <!-- org.codehaus.mojo maven plugins (xxx-maven-plugin) -->
@@ -68,6 +68,12 @@
         <!-- org.apache.felix plugins )maven-xxx-plugin) -->
         <bundle.plugin.version>3.5.1</bundle.plugin.version>  <!-- 4.0.0 exists -->
     </properties>
+
+    <!-- This check is just for plugins, see enforcer plugin for relevant check
+    <prerequisites>
+        <maven>${min-maven.version}</maven>
+    </prerequisites>
+    -->
 
     <licenses>
         <license>
@@ -130,6 +136,26 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+
+            <!-- declare icu4j before the xtext bom claims a very old one -->
+            <dependency>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j</artifactId>
+                <version>${icu.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.xtext</groupId>
+                <artifactId>xtext-dev-bom</artifactId>
+                <version>${xtext.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.xtend</groupId>
+                <artifactId>org.eclipse.xtend.lib</artifactId>
+                <version>${xtext.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -191,11 +217,18 @@
                     </executions>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${clean.plugin.version}</version>
+                </plugin>
+
+
                 <!-- default xtend settings -->
                 <plugin>
                     <groupId>org.eclipse.xtend</groupId>
                     <artifactId>xtend-maven-plugin</artifactId>
-                    <version>${xtend-plugin.version}</version>
+                    <version>${xtext.version}</version>
                     <executions>
                         <execution>
                             <phase>generate-sources</phase>
@@ -208,6 +241,7 @@
                             <configuration>
                                 <outputDirectory>${project.basedir}/src/main/xtend-gen</outputDirectory>
                                 <testOutputDirectory>${project.basedir}/src/test/xtend-gen</testOutputDirectory>
+                                <javaSourceVersion>1.6</javaSourceVersion>   <!-- there are still some Java 6 projects, with version 2.0 this will be switched to 1.8 -->
                             </configuration>
                         </execution>
                     </executions>
@@ -225,6 +259,19 @@
                             <goals>
                                 <goal>enforce</goal>
                             </goals>
+                        </execution>
+                        <execution>
+                            <id>enforce-maven</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireMavenVersion>
+                                        <version>${min-maven.version}</version>
+                                    </requireMavenVersion>
+                                </rules>    
+                            </configuration>
                         </execution>
                     </executions>
                     <configuration>
