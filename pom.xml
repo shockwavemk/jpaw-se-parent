@@ -8,9 +8,16 @@
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
 
+    <!-- useful commands to check current versions:
+         mvn dependency:resolve
+         mvn dependency:resolve-plugins
+         mvn versions:display-dependency-updates
+         mvn versions:display-plugin-updates
+    -->
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <min-maven.version>3.0.5</min-maven.version>
+        <min-maven.version>3.6.0</min-maven.version>
 
         <!-- logging -->
         <slf4j.version>1.7.26</slf4j.version>           <!-- http://www.slf4j.org/ -->
@@ -19,7 +26,7 @@
         <log4j2.version>2.11.0</log4j2.version>
 
         <!-- core tools used -->
-        <guava.version>20.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
+        <guava.version>21.0</guava.version>             <!-- sync guava version with the one used by xtext -->
         <xtext.version>2.17.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
         <jodatime.version>2.10.1</jodatime.version>
         <jsap.version>2.1</jsap.version>
@@ -32,7 +39,7 @@
         <asm.version>7.0</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
         <javassist.version>3.24.1-GA</javassist.version>
         <cglib.version>3.2.10</cglib.version>
-        <jaxb.version>2.3.0</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
+        <jaxb.version>2.3.1</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
 
 
@@ -48,7 +55,10 @@
         <antrun.plugin.version>1.8</antrun.plugin.version>
         <compiler.plugin.version>3.8.0</compiler.plugin.version>
         <clean.plugin.version>3.1.0</clean.plugin.version>
-        <enforcer.plugin.version>1.4.1</enforcer.plugin.version>
+        <site.plugin.version>3.7.1</site.plugin.version>
+        <install.plugin.version>3.0.0-M1</install.plugin.version>
+        <deploy.plugin.version>3.0.0-M1</deploy.plugin.version>    <!-- must be the same version as install-plugin -->
+        <enforcer.plugin.version>3.0.0-M2</enforcer.plugin.version>
         <ear.plugin.version>3.0.1</ear.plugin.version>
         <ejb.plugin.version>3.0.1</ejb.plugin.version>
         <jar.plugin.version>3.1.1</jar.plugin.version>
@@ -64,9 +74,6 @@
         <exec.plugin.version>1.6.0</exec.plugin.version>
         <build-helper.plugin.version>3.0.0</build-helper.plugin.version>
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
-
-        <!-- org.apache.felix plugins )maven-xxx-plugin) -->
-        <bundle.plugin.version>3.5.1</bundle.plugin.version>  <!-- 4.0.0 exists -->
     </properties>
 
     <!-- This check is just for plugins, see enforcer plugin for relevant check
@@ -162,7 +169,21 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- default Java compatibility version is 1.8, override if Android compatibility is required (projects jpaw, bonaparte) -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${site.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${install.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${deploy.plugin.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -181,7 +202,7 @@
                             <path>
                                 <groupId>com.google.errorprone</groupId>
                                 <artifactId>error_prone_core</artifactId>
-                                <version>2.3.1</version>
+                                <version>2.3.3</version>
                             </path>
                         </annotationProcessorPaths>
 -->
@@ -241,18 +262,31 @@
                             <configuration>
                                 <outputDirectory>${project.basedir}/src/main/xtend-gen</outputDirectory>
                                 <testOutputDirectory>${project.basedir}/src/test/xtend-gen</testOutputDirectory>
-                                <javaSourceVersion>1.6</javaSourceVersion>   <!-- there are still some Java 6 projects, with version 2.0 this will be switched to 1.8 -->
+                                <javaSourceVersion>1.8</javaSourceVersion>
                             </configuration>
                         </execution>
                     </executions>
                 </plugin>
 
-                <!-- ensure consistency for tagged releases -->
+                <!-- ensure consistency for tagged releases, java version and maven version -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${enforcer.plugin.version}</version>
                     <executions>
+                        <execution>
+                            <id>enforce-java</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireJavaVersion>
+                                        <version>1.8.0</version>
+                                    </requireJavaVersion>
+                                </rules>    
+                            </configuration>
+                        </execution>
                         <execution>
                             <id>enforce-no-snapshots</id>
                             <phase>package</phase>
@@ -386,6 +420,13 @@
             </plugins>
 
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <!-- define a repositories section to disable access to codehaus which is no longer there, and some external SNAPSHOT repos accessed in some xtend runs. -->
