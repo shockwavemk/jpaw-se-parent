@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -20,7 +20,7 @@
 
         <!-- core tools used -->
         <guava.version>20.0</guava.version>             <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtext.version>2.17.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
+        <xtext.version>2.17.1</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
         <jodatime.version>2.10.1</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.11</reflections.version>
