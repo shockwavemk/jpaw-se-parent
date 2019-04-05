@@ -27,7 +27,7 @@
 
         <!-- core tools used -->
         <guava.version>21.0</guava.version>             <!-- sync guava version with the one used by xtext -->
-        <xtext.version>2.17.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
+        <xtext.version>2.17.1</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
         <jodatime.version>2.10.1</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.11</reflections.version>
