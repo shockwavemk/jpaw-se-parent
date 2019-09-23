@@ -53,7 +53,7 @@
 
         <!-- org.apache.maven.plugins (maven-xxx-plugin) -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
-        <compiler.plugin.version>3.8.0</compiler.plugin.version>
+        <compiler.plugin.version>3.8.1</compiler.plugin.version>
         <clean.plugin.version>3.1.0</clean.plugin.version>
         <enforcer.plugin.version>3.0.0-M2</enforcer.plugin.version>
         <ear.plugin.version>3.0.1</ear.plugin.version>
@@ -62,7 +62,7 @@
         <war.plugin.version>3.2.2</war.plugin.version>
         <javadoc.plugin.version>3.1.0</javadoc.plugin.version>
         <shade.plugin.version>3.2.0</shade.plugin.version>
-        <source.plugin.version>3.0.1</source.plugin.version>
+        <source.plugin.version>3.1.0</source.plugin.version>
         <surefire.plugin.version>2.22.1</surefire.plugin.version>
         <failsafe.plugin.version>2.22.1</failsafe.plugin.version>
         <assembly.plugin.version>3.1.0</assembly.plugin.version>
@@ -70,7 +70,8 @@
         <!-- org.codehaus.mojo maven plugins (xxx-maven-plugin) -->
         <exec.plugin.version>1.6.0</exec.plugin.version>
         <build-helper.plugin.version>3.0.0</build-helper.plugin.version>
-        <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
+        <buildnumber.plugin.version>1.4</buildnumber.plugin.version>
+        <properties.plugin.version>1.0.0</properties.plugin.version>
 
         <!-- org.apache.felix plugins )maven-xxx-plugin) -->
         <bundle.plugin.version>3.5.1</bundle.plugin.version>  <!-- 4.0.0 exists -->
@@ -360,7 +361,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>${buildnumber-maven-plugin.version}</version>
+                    <version>${buildnumber.plugin.version}</version>
                     <executions>
                         <execution>
                             <phase>validate</phase>
@@ -373,25 +374,47 @@
                         <doCheck>true</doCheck>
                         <doUpdate>false</doUpdate>
                     </configuration>
-                  </plugin>
+                </plugin>
 
-                  <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-jar-plugin</artifactId>
-                      <version>${jar.plugin.version}</version>
-                      <configuration>
-                          <archive>
-                              <manifest>
-                                  <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                              </manifest>
-                              <manifestEntries>
-                                  <Implementation-Build>${buildNumber}</Implementation-Build>
-                              </manifestEntries>
-                          </archive>
-                      </configuration>
-                  </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${jar.plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Implementation-Build>${buildNumber}</Implementation-Build>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>properties-maven-plugin</artifactId>
+                    <version>${properties.plugin.version}</version>
+<!--
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>set-system-properties</goal>
+                            </goals>
+                            <configuration>
+                                <properties>
+                                    <property>
+                                        <name>bonaparte.java.version</name>
+                                        <value>8</value>
+                                    </property>
+                                </properties>
+                            </configuration>
+                        </execution>
+                    </executions>
+-->
+                </plugin>
             </plugins>
-
         </pluginManagement>
 
         <plugins>
