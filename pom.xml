@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -20,25 +20,25 @@
         <min-maven.version>3.2.2</min-maven.version>
 
         <!-- logging -->
-        <slf4j.version>1.7.28</slf4j.version>           <!-- http://www.slf4j.org/ -->
+        <slf4j.version>1.7.29</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.2.3</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
         <log4j2.version>2.11.0</log4j2.version>
 
         <!-- core tools used -->
         <guava.version>27.1-jre</guava.version>         <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtext.version>2.19.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
-        <jodatime.version>2.10.4</jodatime.version>
+        <xtext.version>2.20.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
+        <jodatime.version>2.10.5</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 git issues while scanning -->
-        <icu.version>64.2</icu.version>
+        <icu.version>65.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
-        <tycho.version>1.4.0</tycho.version>
+        <tycho.version>1.5.1</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>7.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
-        <javassist.version>3.25.0-GA</javassist.version>
-        <cglib.version>3.2.12</cglib.version>
+        <asm.version>7.2</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
+        <javassist.version>3.26.0-GA</javassist.version>
+        <cglib.version>3.3.0</cglib.version>
         <jaxb.version>2.3.1</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
 
@@ -49,23 +49,23 @@
         <jmockit.version>1.22</jmockit.version>
 
         <!--  benchmarking -->
-        <jmh.version>1.21</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.22</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins (maven-xxx-plugin) -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
         <clean.plugin.version>3.1.0</clean.plugin.version>
-        <enforcer.plugin.version>3.0.0-M2</enforcer.plugin.version>
-        <ear.plugin.version>3.0.1</ear.plugin.version>
+        <enforcer.plugin.version>3.0.0-M3</enforcer.plugin.version>
+        <ear.plugin.version>3.0.2</ear.plugin.version>
         <ejb.plugin.version>3.0.1</ejb.plugin.version>
-        <jar.plugin.version>3.1.1</jar.plugin.version>
-        <war.plugin.version>3.2.2</war.plugin.version>
-        <javadoc.plugin.version>3.1.0</javadoc.plugin.version>
-        <shade.plugin.version>3.2.0</shade.plugin.version>
-        <source.plugin.version>3.1.0</source.plugin.version>
-        <surefire.plugin.version>2.22.1</surefire.plugin.version>
-        <failsafe.plugin.version>2.22.1</failsafe.plugin.version>
-        <assembly.plugin.version>3.1.0</assembly.plugin.version>
+        <jar.plugin.version>3.2.0</jar.plugin.version>
+        <war.plugin.version>3.2.3</war.plugin.version>
+        <javadoc.plugin.version>3.1.1</javadoc.plugin.version>
+        <shade.plugin.version>3.2.1</shade.plugin.version>
+        <source.plugin.version>3.2.0</source.plugin.version>
+        <surefire.plugin.version>2.22.2</surefire.plugin.version>
+        <failsafe.plugin.version>2.22.2</failsafe.plugin.version>
+        <assembly.plugin.version>3.2.0</assembly.plugin.version>
 
         <!-- org.codehaus.mojo maven plugins (xxx-maven-plugin) -->
         <exec.plugin.version>1.6.0</exec.plugin.version>
