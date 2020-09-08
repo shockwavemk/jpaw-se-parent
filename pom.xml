@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.7.0</version>
+    <version>1.7.1</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -33,10 +33,10 @@
         <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 git issues while scanning -->
         <icu.version>67.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
-        <tycho.version>1.6.0</tycho.version>
+        <tycho.version>1.7.0</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>7.3.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
+        <asm.version>8.0.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
         <javassist.version>3.27.0-GA</javassist.version>
         <cglib.version>3.3.0</cglib.version>
         <jaxb.version>2.3.1</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
@@ -49,7 +49,7 @@
         <jmockit.version>1.22</jmockit.version>
 
         <!--  benchmarking -->
-        <jmh.version>1.23</jmh.version>                 <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.25.2</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins (maven-xxx-plugin) -->
         <antrun.plugin.version>1.8</antrun.plugin.version>
