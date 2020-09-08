@@ -27,17 +27,17 @@
 
         <!-- core tools used -->
         <guava.version>27.1-jre</guava.version>         <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtext.version>2.21.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
-        <jodatime.version>2.10.5</jodatime.version>
+        <xtext.version>2.23.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
+        <jodatime.version>2.10.6</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 git issues while scanning -->
-        <icu.version>65.1</icu.version>
+        <icu.version>67.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
         <tycho.version>1.6.0</tycho.version>
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
         <asm.version>7.3.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
-        <javassist.version>3.26.0-GA</javassist.version>
+        <javassist.version>3.27.0-GA</javassist.version>
         <cglib.version>3.3.0</cglib.version>
         <jaxb.version>2.3.1</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
