@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.7.1</version>
+    <version>1.8.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -17,64 +17,66 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <min-maven.version>3.2.2</min-maven.version>
+        <min-maven.version>3.8.1</min-maven.version>
 
         <!-- logging -->
         <slf4j.version>1.7.30</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.2.3</logback.version>        <!-- http://logback.qos.ch/ -->
-        <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated) -->
+        <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated, not compatible with Java 9+) -->
         <log4j2.version>2.11.0</log4j2.version>
 
         <!-- core tools used -->
-        <guava.version>27.1-jre</guava.version>         <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtext.version>2.23.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
-        <jodatime.version>2.10.6</jodatime.version>
+        <guava.version>30.1.1-jre</guava.version>       <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
+        <xtext.version>2.25.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
+        <jodatime.version>2.10.10</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 git issues while scanning -->
-        <icu.version>67.1</icu.version>
+        <icu.version>69.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
-        <tycho.version>1.7.0</tycho.version>
+        <tycho.version>1.7.0</tycho.version>            <!-- tycho 2.x requires Java 9+ -->
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>8.0.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
-        <javassist.version>3.27.0-GA</javassist.version>
+        <asm.version>9.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
+        <javassist.version>3.28.0-GA</javassist.version>
         <cglib.version>3.3.0</cglib.version>
         <jaxb.version>2.3.1</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
         <activation.version>1.2.0</activation.version>
+        <error-prone.version>2.7.1</error-prone.version>
 
 
         <!-- testing support -->
-        <testng.version>6.9.10</testng.version>
-        <junit.version>4.13</junit.version>
-        <jmockit.version>1.22</jmockit.version>
+        <testng.version>7.4.0</testng.version>
+        <junit.version>4.13.2</junit.version>
+        <jmockit.version>1.49</jmockit.version>
 
         <!--  benchmarking -->
-        <jmh.version>1.25.2</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.32</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins (maven-xxx-plugin) -->
-        <antrun.plugin.version>1.8</antrun.plugin.version>
+        <antrun.plugin.version>3.0.0</antrun.plugin.version>
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
         <clean.plugin.version>3.1.0</clean.plugin.version>
         <enforcer.plugin.version>3.0.0-M3</enforcer.plugin.version>
-        <ear.plugin.version>3.0.2</ear.plugin.version>
-        <ejb.plugin.version>3.0.1</ejb.plugin.version>
         <jar.plugin.version>3.2.0</jar.plugin.version>
-        <war.plugin.version>3.2.3</war.plugin.version>
-        <javadoc.plugin.version>3.1.1</javadoc.plugin.version>
-        <shade.plugin.version>3.2.1</shade.plugin.version>
-        <source.plugin.version>3.2.0</source.plugin.version>
-        <surefire.plugin.version>2.22.2</surefire.plugin.version>
-        <failsafe.plugin.version>2.22.2</failsafe.plugin.version>
-        <assembly.plugin.version>3.2.0</assembly.plugin.version>
+        <war.plugin.version>3.3.1</war.plugin.version>
+        <javadoc.plugin.version>3.3.0</javadoc.plugin.version>
+        <shade.plugin.version>3.2.4</shade.plugin.version>
+        <source.plugin.version>3.2.1</source.plugin.version>
+        <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>   <!-- requires at least M3 for JDK11 -->
+        <failsafe.plugin.version>3.0.0-M5</failsafe.plugin.version>
+        <assembly.plugin.version>3.3.0</assembly.plugin.version>
+        <deploy.plugin.version>3.0.0-M1</deploy.plugin.version>
+        <install.plugin.version>3.0.0-M1</install.plugin.version>
+        <site.plugin.version>3.7.1</site.plugin.version>
 
         <!-- org.codehaus.mojo maven plugins (xxx-maven-plugin) -->
-        <exec.plugin.version>1.6.0</exec.plugin.version>
-        <build-helper.plugin.version>3.0.0</build-helper.plugin.version>
+        <exec.plugin.version>3.0.0</exec.plugin.version>
+        <build-helper.plugin.version>3.2.0</build-helper.plugin.version>
         <buildnumber.plugin.version>1.4</buildnumber.plugin.version>
         <properties.plugin.version>1.0.0</properties.plugin.version>
 
-        <!-- org.apache.felix plugins )maven-xxx-plugin) -->
-        <bundle.plugin.version>3.5.1</bundle.plugin.version>  <!-- 4.0.0 exists -->
+        <!-- org.apache.felix plugins (maven-xxx-plugin) -->
+        <bundle.plugin.version>5.1.2</bundle.plugin.version>
     </properties>
 
     <!-- This check is just for plugins, see enforcer plugin for relevant check
@@ -151,6 +153,11 @@
                 <artifactId>icu4j</artifactId>
                 <version>${icu.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.errorprone</groupId>
+                <artifactId>error_prone_core</artifactId>
+                <version>${error-prone.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.eclipse.xtext</groupId>
@@ -176,11 +183,11 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${compiler.plugin.version}</version>
                     <configuration>
-                        <!-- <release>10</release> -->
+                        <!-- <release>11</release> -->
                         <source>1.8</source>
                         <target>1.8</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
-<!-- errorProne checker: needs Java 9 or 10
+<!-- errorProne checker: needs Java 9 or later
                         <compilerArgs>
                             <arg>-XDcompilePolicy=simple</arg>
                             <arg>-Xplugin:ErrorProne</arg>
@@ -189,7 +196,6 @@
                             <path>
                                 <groupId>com.google.errorprone</groupId>
                                 <artifactId>error_prone_core</artifactId>
-                                <version>2.3.1</version>
                             </path>
                         </annotationProcessorPaths>
 -->
@@ -231,6 +237,34 @@
                     <version>${clean.plugin.version}</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${failsafe.plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${deploy.plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${site.plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${install.plugin.version}</version>
+                </plugin>
 
                 <!-- default xtend settings -->
                 <plugin>
@@ -249,7 +283,7 @@
                             <configuration>
                                 <outputDirectory>${project.basedir}/src/main/xtend-gen</outputDirectory>
                                 <testOutputDirectory>${project.basedir}/src/test/xtend-gen</testOutputDirectory>
-                                <javaSourceVersion>1.6</javaSourceVersion>   <!-- there are still some Java 6 projects, with version 2.0 this will be switched to 1.8 -->
+                                <javaSourceVersion>1.8</javaSourceVersion>
                             </configuration>
                         </execution>
                     </executions>
