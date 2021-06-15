@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects</description>
@@ -39,10 +39,13 @@
         <asm.version>9.1</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11 -->
         <javassist.version>3.28.0-GA</javassist.version>
         <cglib.version>3.3.0</cglib.version>
-        <jaxb.version>2.3.1</jaxb.version>              <!-- JAXB supports Java 9 from 2.3.0 on -->
-        <activation.version>1.2.0</activation.version>
         <error-prone.version>2.7.1</error-prone.version>
 
+        <!-- Jakarta -->
+        <jakarta.xml-bind-api.version>2.3.3</jakarta.xml-bind-api.version>              <!-- 3.0.1 for jakarta namespace -->
+        <jakarta.xml-bind.version>2.3.4</jakarta.xml-bind.version>                      <!-- 3.0.1 for jakarta namespace -->
+        <jakarta.activation-api.version>1.2.2</jakarta.activation-api.version>          <!-- 2.0.1 for jakarta namespace -->
+        <jakarta.activation.version>1.2.2</jakarta.activation.version>                  <!-- 2.0.1 for jakarta namespace -->
 
         <!-- testing support -->
         <testng.version>7.4.0</testng.version>
@@ -145,6 +148,30 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- jakarta activation -->
+            <dependency>
+                <groupId>jakarta.activation</groupId>
+                <artifactId>jakarta.activation-api</artifactId>
+                <version>${jakarta.activation-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.activation</groupId>
+                <artifactId>jakarta.activation</artifactId>
+                <version>${jakarta.activation.version}</version>
+            </dependency>
+
+            <!-- jakarta XML bind (JAXB) -->
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jakarta.xml-bind-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${jakarta.xml-bind.version}</version>
             </dependency>
 
             <!-- declare icu4j before the xtext bom claims a very old one -->
