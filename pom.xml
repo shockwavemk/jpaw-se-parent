@@ -56,6 +56,7 @@
         <!-- testing support -->
         <testng.version>7.4.0</testng.version>
         <junit.version>4.13.2</junit.version>
+        <junit5.version>5.7.2</junit5.version>
         <jmockit.version>1.49</jmockit.version>
 
         <!--  benchmarking -->
@@ -156,6 +157,12 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit5.version}</version>
+            </dependency>
+
 
             <!-- jakarta annotation -->
             <dependency>
