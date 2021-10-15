@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>2.2.1</version>
+    <version>2.2.2</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects (+ Jakarta)</description>
@@ -58,6 +58,7 @@
         <junit.version>4.13.2</junit.version>
         <junit5.version>5.8.0</junit5.version>
         <jmockit.version>1.49</jmockit.version>
+        <spotbugs.version>4.4.2</spotbugs.version>
 
         <!--  benchmarking -->
         <jmh.version>1.33</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
@@ -78,7 +79,7 @@
         <assembly.plugin.version>3.3.0</assembly.plugin.version>
         <deploy.plugin.version>2.8.2</deploy.plugin.version>   <!-- 3.0.0.M1 is buggy and this is known since 2018! See https://support.sonatype.com/hc/en-us/articles/360010223594-maven-deploy-plugin-version-3-0-0-M1-deploy-fails-with-401-ReasonPhrase-Unauthorized  looks like this plugin has been abandoned. -->
         <install.plugin.version>3.0.0-M1</install.plugin.version>
-        <site.plugin.version>3.7.1</site.plugin.version>
+        <site.plugin.version>3.9.1</site.plugin.version>
 
         <!-- org.codehaus.mojo maven plugins (xxx-maven-plugin) -->
         <exec.plugin.version>3.0.0</exec.plugin.version>
@@ -266,6 +267,12 @@
                 <groupId>org.eclipse.xtend</groupId>
                 <artifactId>org.eclipse.xtend.lib</artifactId>
                 <version>${xtext.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs</artifactId>
+                <version>${spotbugs.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -550,6 +557,20 @@
                     </executions>
 -->
                 </plugin>
+
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${spotbugs.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.spotbugs</groupId>
+                            <artifactId>spotbugs</artifactId>
+                            <version>${spotbugs.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
             </plugins>
         </pluginManagement>
 
