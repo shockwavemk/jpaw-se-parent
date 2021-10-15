@@ -498,6 +498,8 @@
                     <version>${javadoc.plugin.version}</version>
                     <configuration>
                         <charset>UTF-8</charset>
+                        <source>8</source>
+                        <detectJavaApiLink>false</detectJavaApiLink>
                     </configuration>
                 </plugin>
 
