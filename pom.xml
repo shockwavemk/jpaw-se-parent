@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>2.2.4</version>
+    <version>2.2.5</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects (+ Jakarta)</description>
@@ -23,7 +23,7 @@
         <slf4j.version>1.7.32</slf4j.version>           <!-- http://www.slf4j.org/ -->
         <logback.version>1.2.6</logback.version>        <!-- http://logback.qos.ch/ -->
         <log4j.version>1.2.17</log4j.version>           <!-- Log4j Rev 1 (deprecated, not compatible with Java 9+) -->
-        <log4j2.version>2.11.0</log4j2.version>
+        <log4j2.version>2.17.0</log4j2.version>         <!-- important update due to CVE-2021-44228 -->
 
         <!-- core tools used -->
         <guava.version>31.0.1-jre</guava.version>       <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
@@ -51,14 +51,14 @@
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
         <jakarta.el-api.version>3.0.3</jakarta.el-api.version>                    <!-- expression language, required for hibernate validator -->
         <jakarta.el.version>3.0.3</jakarta.el.version>                            <!-- expression language, required for hibernate validator -->
-        <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.2.1.Final</hibernate-validator.version>
 
         <!-- testing support -->
         <testng.version>7.4.0</testng.version>
         <junit.version>4.13.2</junit.version>
-        <junit5.version>5.8.1</junit5.version>
+        <junit5.version>5.8.2</junit5.version>
         <jmockit.version>1.49</jmockit.version>
-        <spotbugs.version>4.4.2</spotbugs.version>
+        <spotbugs.version>4.5.2</spotbugs.version>
 
         <!--  benchmarking -->
         <jmh.version>1.33</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
