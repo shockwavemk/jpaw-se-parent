@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects (+ Jakarta)</description>
@@ -26,8 +26,8 @@
         <log4j2.version>2.17.1</log4j2.version>         <!-- important update due to CVE-2021-44228 -->
 
         <!-- core tools used -->
-        <guava.version>31.0.1-jre</guava.version>       <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
-        <xtext.version>2.26.0.M2</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
+        <guava.version>31.1-jre</guava.version>         <!-- http://code.google.com/p/guava-libraries/, 20 is the last Java 6 compatible one -->
+        <xtext.version>2.26.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
         <jodatime.version>2.10.10</jodatime.version>
         <jsap.version>2.1</jsap.version>
         <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 git issues while scanning -->
@@ -66,7 +66,7 @@
         <!-- org.apache.maven.plugins (maven-xxx-plugin) -->
         <exec.plugin.version>3.0.0</exec.plugin.version>
         <antrun.plugin.version>3.0.0</antrun.plugin.version>
-        <compiler.plugin.version>3.8.1</compiler.plugin.version>
+        <compiler.plugin.version>3.10.1</compiler.plugin.version>
         <clean.plugin.version>3.1.0</clean.plugin.version>
         <enforcer.plugin.version>3.0.0</enforcer.plugin.version>
         <jar.plugin.version>3.2.0</jar.plugin.version>
@@ -285,17 +285,16 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- default Java compatibility version is 1.8, override if Android compatibility is required (projects jpaw, bonaparte) -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${compiler.plugin.version}</version>
                     <configuration>
-                        <!-- <release>11</release> -->
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <release>11</release>
+                        <source>11</source>
+                        <target>11</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
-<!-- errorProne checker: needs Java 9 or later
+<!--
                         <compilerArgs>
                             <arg>-XDcompilePolicy=simple</arg>
                             <arg>-Xplugin:ErrorProne</arg>
@@ -416,7 +415,7 @@
                             <configuration>
                                 <outputDirectory>${project.basedir}/src/main/xtend-gen</outputDirectory>
                                 <testOutputDirectory>${project.basedir}/src/test/xtend-gen</testOutputDirectory>
-                                <javaSourceVersion>1.8</javaSourceVersion>
+                                <javaSourceVersion>11</javaSourceVersion>
                             </configuration>
                         </execution>
                     </executions>
@@ -476,7 +475,7 @@
                     <version>${javadoc.plugin.version}</version>
                     <configuration>
                         <charset>UTF-8</charset>
-                        <source>8</source>
+                        <source>11</source>
                         <detectJavaApiLink>false</detectJavaApiLink>
                     </configuration>
                 </plugin>
@@ -529,7 +528,7 @@
                                 <properties>
                                     <property>
                                         <name>bonaparte.java.version</name>
-                                        <value>8</value>
+                                        <value>11</value>
                                     </property>
                                 </properties>
                             </configuration>
