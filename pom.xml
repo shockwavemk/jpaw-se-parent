@@ -3,7 +3,7 @@
 
     <groupId>de.jpaw</groupId>
     <artifactId>jpaw-se-parent</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
     <packaging>pom</packaging>
 
     <description>Common configuration settings / revision defaults for jpaw.de Java SE projects (+ Jakarta)</description>
@@ -30,15 +30,15 @@
         <xtext.version>2.26.0</xtext.version>           <!-- version of xtext, xtend, and the related libs -->
         <jodatime.version>2.10.10</jodatime.version>
         <jsap.version>2.1</jsap.version>
-        <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 git issues while scanning -->
+        <reflections.version>0.9.10</reflections.version>  <!-- 0.9.11 got issues while scanning -->
         <icu.version>69.1</icu.version>
         <disruptor.version>3.3.10</disruptor.version>
-        <jackson.version>2.13.1</jackson.version>
+        <jackson.version>2.13.3</jackson.version>
 
 
         <!-- new dependencies required for jigsaw (Java 9 and up) -->
-        <asm.version>9.2</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11, 9.1 for Java 17 -->
-        <javassist.version>3.28.0-GA</javassist.version>
+        <asm.version>9.3</asm.version>                  <!-- 7.0 is minimally required version for compiler plugin with version 11, 9.1 for Java 17 -->
+        <javassist.version>3.29.0-GA</javassist.version>
         <cglib.version>3.3.0</cglib.version>
         <error-prone.version>2.7.1</error-prone.version>
 
@@ -61,7 +61,7 @@
         <spotbugs.version>4.5.2</spotbugs.version>
 
         <!--  benchmarking -->
-        <jmh.version>1.33</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
+        <jmh.version>1.35</jmh.version>               <!-- http://openjdk.java.net/projects/code-tools/jmh/ -->
 
         <!-- org.apache.maven.plugins (maven-xxx-plugin) -->
         <exec.plugin.version>3.0.0</exec.plugin.version>
@@ -232,6 +232,16 @@
                 <version>${error-prone.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
